@@ -2,6 +2,7 @@ package com.unixteam.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 public class Post implements Serializable{
@@ -9,10 +10,11 @@ public class Post implements Serializable{
    private Date date;
    private String title;
    private String description;
+
     // Foreign keys
    private User author;
-
-
+   private Map map;
+   private List<Image> images;
 
    public Post(){
 
@@ -58,6 +60,20 @@ public class Post implements Serializable{
         this.author = author;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
 
 
 }

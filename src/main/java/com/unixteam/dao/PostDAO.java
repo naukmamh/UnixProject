@@ -1,8 +1,12 @@
 package com.unixteam.dao;
 
 
+import com.unixteam.entity.Image;
+import com.unixteam.entity.Map;
 import com.unixteam.entity.Post;
 import com.unixteam.entity.User;
+import com.unixteam.service.ImageService;
+import com.unixteam.service.MapService;
 import com.unixteam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,6 +30,12 @@ public class PostDAO {
     @Autowired
     UserService userService;
 
+    @Autowired
+    MapService mapService;
+
+    @Autowired
+    ImageService imageService;
+
     public class PostMapper implements RowMapper<Post> {
         public Post mapRow(ResultSet resultSet, int rowNum) throws SQLException {
             Post post= new Post();
@@ -34,6 +44,10 @@ public class PostDAO {
             post.setTitle(resultSet.getString("title"));
             post.setDescription(resultSet.getString("description"));
             User author = userService.getUserById(resultSet.getInt("author_id"));
+            Map map = mapService.getMapById(post.getId());
+            List<Image> images = imageService.getAllImagesForPost(post.getId());
+            post.setImages(images);
+            post.setMap(map);
             post.setAuthor(author);
 
             return post;
