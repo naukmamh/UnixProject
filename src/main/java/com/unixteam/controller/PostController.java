@@ -42,7 +42,7 @@ public class PostController {
             model.addObject("userId", personId);
         }*/
         model.addObject("post",postService.getPostById(id));
-        model.setViewName("post");
+        model.setViewName("postDetails");
         return model;
     }
     @RequestMapping(value = "/add-post",method = RequestMethod.POST)

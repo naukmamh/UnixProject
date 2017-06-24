@@ -36,8 +36,7 @@
 	src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"/> ">
 
 </script>
-	<script
-			src="<c:url value="/sources/libraries/js/forfrom.js"/>"></script>
+
 <link
 	href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />"
 	type="text/css" rel="stylesheet" />
@@ -106,7 +105,7 @@
 
 <div class="container modal col-sm-12 col-xs-12" id="registrationForm">
 
-	<form method="post" action="/sources/libraries/php/toDB.php" class="center modal-content">
+	<form method="post" class="center modal-content">
 		<span onclick="document.getElementById('registrationForm').style.display='none'" class="close" title="Close Modal">&times;</span>
 		<div class="form-group ">
 			<label for="usernameR">Username</label>
@@ -120,7 +119,7 @@
 			<label for="passwordR">Pasword</label>
 			<input type="password" class="form-control" id="passwordR" name="passwordR" placeholder="Password">
 		</div>
-		<button type="submit" class="paddingB form-control btn btn-success btn-lg text-center">Join now</button>
+		<button type="submit" class="paddingB form-control btn btn-success btn-lg text-center" onclick="sendtoDB()">Join now</button>
 
 	</form>
 

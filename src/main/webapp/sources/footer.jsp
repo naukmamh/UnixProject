@@ -6,5 +6,7 @@
 
         <script
                 src="<c:url value="/sources/libraries/js/index.js"/>"></script>
+        <script
+                src="<c:url value="/sources/libraries/js/forfrom.js"/>"></script>
 </body>
 </html>

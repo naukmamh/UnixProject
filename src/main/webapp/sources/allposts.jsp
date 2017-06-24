@@ -43,7 +43,6 @@
     </div>
 
 
-
     <div class="col-xs-10 col-xs-offset-1 postplace">
         <div class="row">
             <c:forEach items="${posts}" var="post">
@@ -64,7 +63,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="container modal col-xs-12" id="addPostForm">
     <form method="post" action="/" class="center modal-content">
@@ -103,9 +101,9 @@
                 <input type="text" class="form-control" id="urlimage" placeholder="image url">
             </div>
         </div>
+        <button id="addpostbuttonsubmit" class="btn btn-lg btn-default" type="button" value="Add Post" name="addpostsubmit">Add post</button>
     </form>
 </div>
-
 
 <%@include file="footer.jsp"%>
 

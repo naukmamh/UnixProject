@@ -1,28 +1,64 @@
 /**
  * Created by maria on 21.06.2017.
  */
+
 // send data to DB
 
-function sendtoDB() {
-    var username = document.getElementById("usernameR").value;
-    var login = document.getElementById("login").value;
-    var password = document.getElementById("passwordR").value;
-// Returns successful data submission message when the entered information is stored in database.
-    var dataString = 'name1=' + username + '&name11=' + login+ '&password1=' + password;
-    if (username == '' || password == ''|| login == '') {
-        alert("Please Fill All Fields");
-    } else {
-// AJAX code to submit form.
-        $.ajax({
-            type: "POST",
-            url: "/sources/libraries/php/toDB.php",
-            data: dataString,
-            cache: false,
-            success: success()
-        });
-    }
-    function success(){
-        $("#registrationForm").fadeOut();
-    }
-    return false;
-}
+$("#addpostbuttonsubmit").click(function () {
+    console.log("In js");
+    $.ajax({
+        url: "/add-post",
+        type: "POST",
+        data: {
+            "title": $("#placeName").val(),
+            "description": $("#description").val(),
+            "author_id": 1
+        },
+        success: function (data) {
+            console.log(data);
+            $('#addPostForm').fadeOut();
+        //    location.reload();
+        },
+        error: function (textStatus) {
+            console.log(textStatus);
+        }
+    });
+});
+
+$(".removepost").click(function(event){
+    $.ajax({
+        url: "/delete-post",
+        type: "POST",
+        data:{"id":this.id},
+        success: function (data) {
+            console.log(data);
+            console.log("Post deleted successfully");
+            window.location.replace("/");
+        },
+        error: function(errorText){
+            console.log(errorText);
+            alert("Error deleting post");
+        }
+    });
+});
+
+$(".editpostbuttonsubmit").click(function(event){
+    $.ajax({
+        url: "/edit-post",
+        type: "POST",
+        data: {
+            "id":this.id,
+            "title": $("#placeNameEdit").val(),
+            "description": $("#descriptionEdit").val(),
+            "author_id": 1
+        },
+        success: function (data) {
+            console.log(data);
+            $('#editPostForm').fadeOut();
+               location.reload();
+        },
+        error: function (textStatus) {
+            console.log(textStatus);
+        }
+    });
+});

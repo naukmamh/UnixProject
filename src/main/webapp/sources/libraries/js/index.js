@@ -5,6 +5,8 @@
  });
  */
 
+
+
 // Get the modal
 var modalLog = document.getElementById('loginForm');
 var modalReg = document.getElementById('registrationForm');
@@ -85,6 +87,7 @@ $(document).ready( function() {
     $("div.description").text(function(index, currentText) {
         return currentText.substr(0, 200) + "...";
     });
+
 
 });
 
