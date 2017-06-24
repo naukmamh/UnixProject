@@ -1,3 +1,4 @@
+<%@include file="header.jsp"%>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -12,5 +13,26 @@
 </head>
 <body>
 Some text
+<div class="col-xs-10 col-xs-offset-1 postplace">
+    <div class="row">
+        <c:forEach items="${posts}" var="post" >
+            <div class="col-md-6  center" id="post">
+                <div class="thumbnail">
+                    <c:forEach items="${post.images}" var="img">
+                    <div class="photoofplace">
+
+                        <img src="${img.url}" alt="" class="img-responsive  center">
+                    </div>
+                    </c:forEach>
+                    <div class="caption">
+                        <div class="description">${post.description}</div>
+                        <div class="linkondetail text-center"><a href="postDetails.jsp"> Show more  </a> </div>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+</div>
 </body>
 </html>

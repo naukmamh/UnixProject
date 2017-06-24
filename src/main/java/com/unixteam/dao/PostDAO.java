@@ -43,7 +43,7 @@ public class PostDAO {
             post.setDate(resultSet.getDate("date"));
             post.setTitle(resultSet.getString("title"));
             post.setDescription(resultSet.getString("description"));
-            User author = userService.getUserById(resultSet.getInt("author_id"));
+            User author = userService.getUserById(resultSet.getInt("author"));
             Map map = mapService.getMapById(post.getId());
             List<Image> images = imageService.getAllImagesForPost(post.getId());
             post.setImages(images);
