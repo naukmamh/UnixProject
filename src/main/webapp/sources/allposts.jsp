@@ -24,12 +24,12 @@
 
     <hr>
     <div class="col-xs-10 col-xs-offset-1">
-
+        <sec:authorize access="hasRole('ROLE_USER')">
         <div class="addpostbutton">
 
             <button id="addpostbutton" class="btn btn-lg btn-default" type="button" value="Add Post" name="addpost" onclick="document.getElementById('addPostForm').style.display='block'">Add post</button>
         </div>
-
+        </sec:authorize>
         <div class="btn-group" >
             <button type="button" class="btn btn-default  btn-lg dropdown-toggle sortpost" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                 Sorted by: <span class="caret"></span>
@@ -101,7 +101,7 @@
                 <input type="text" class="form-control" id="urlimage" placeholder="image url">
             </div>
         </div>
-        <button id="addpostbuttonsubmit" class="btn btn-lg btn-default" type="button" value="Add Post" name="addpostsubmit">Add post</button>
+        <button id="addpostbuttonsubmit" class="btn btn-lg btn-default" type="button" value="${userId}" name="addpostsubmit">Add post</button>
     </form>
 </div>
 

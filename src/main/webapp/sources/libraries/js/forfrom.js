@@ -6,13 +6,14 @@
 
 $("#addpostbuttonsubmit").click(function () {
     console.log("In js");
+    console.log($("#addpostbuttonsubmit").val());
     $.ajax({
         url: "/add-post",
         type: "POST",
         data: {
             "title": $("#placeName").val(),
             "description": $("#description").val(),
-            "author_id": 1
+            "author_id": $("#addpostbuttonsubmit").val()
         },
         success: function (data) {
             console.log(data);
