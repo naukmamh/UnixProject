@@ -21,8 +21,8 @@ public class AppConfig {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
         driverManagerDataSource.setUrl("jdbc:mysql://169.44.4.114/EliteTC");
-        driverManagerDataSource.setUsername(System.env("DB_USERNAME"));
-        driverManagerDataSource.setPassword(System.env("DB_PASSWORD"));
+        driverManagerDataSource.setUsername(System.getenv("DB_USERNAME"));
+        driverManagerDataSource.setPassword(System.getenv("DB_PASSWORD"));
         return driverManagerDataSource;
     }
 }
