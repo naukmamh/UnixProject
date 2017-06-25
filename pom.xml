@@ -6,7 +6,7 @@
 	<groupId>com.besedkin</groupId>
 	<artifactId>unixproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>Unix Project</name>
 	<description>Project for unix course</description>
@@ -113,6 +113,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executable>true</executable>
 			</plugin>
 		</plugins>
 	</build>
